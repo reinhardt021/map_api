@@ -1,0 +1,14 @@
+#images img {
+  width: 300px;
+}
+
+#images img{
+  transition: all 2s linear;
+
+}
+
+#images img.circle {
+  border-radius: 100%;
+  transform: rotate(360deg);
+  opacity: 0.5;
+}

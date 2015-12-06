@@ -11,13 +11,14 @@
 <body>
   <div id="map"></div>
   <script>
+    var myMarker;
 
     function initMap() {
       var theirLatLng = {lat: -25.363, lng: 131.044};
       var myLatLng = {lat: 49.2832653, lng: -123.1101131};
 
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 13,
+        zoom: 17,
         center: myLatLng
       });
 
@@ -27,11 +28,23 @@
         title: 'Hello World!'
       });
 
-      var myMarker = new google.maps.Marker({
+      myMarker = new google.maps.Marker({
         position: myLatLng,
         map: map,
-        title: 'ALOHA!'
+        title: 'ALOHA!',
+        animation: google.maps.Animation.DROP,
+        draggable: true
+
       });
+      myMarker.addListener('click', toggleBounce);
+    }
+
+    function toggleBounce() {
+      if (myMarker.getAnimation() !== null) {
+        myMarker.setAnimation(null);
+      } else {
+        myMarker.setAnimation(google.maps.Animation.BOUNCE);
+      }
     }
 
   </script>

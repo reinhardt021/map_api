@@ -10,3 +10,7 @@ end
 get '/exercise2' do
   erb :'exercise2'
 end
+
+get '/mashup' do
+  erb :'mashup'
+end
